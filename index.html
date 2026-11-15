@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ujian Matematika Kelas X - Eksponen</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eef2ff;
+    margin: 0;
+    padding: 20px;
+    color: #1e293b;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #0002;
+}
+
+header {
+    background: #3730a3;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #3730a3;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.info div {
+    background: #eef2ff;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+#timer {
+    color: #dc2626;
+}
+
+#status {
+    background: #dcfce7;
+    color: #166534;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.warning {
+    background: #fee2e2 !important;
+    color: #b91c1c !important;
+}
+
+.question {
+    background: #f8fafc;
+    padding: 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin: 18px 0;
+}
+
+.question label {
+    display: block;
+    padding: 9px;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.question label:hover {
+    background: #e0e7ff;
+}
+
+button {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px;
+}
+
+#mulai {
+    background: #16a34a;
+    color: white;
+}
+
+#kumpulkan {
+    background: #3730a3;
+    color: white;
+}
+
+#hasil {
+    display: none;
+    background: #dcfce7;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.pembahasan {
+    background: white;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+#ujian {
+    display: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>UJIAN MATEMATIKA</h1>
+    <h2 style="color:white">KELAS X SMA/MA</h2>
+    <h3 style="color:#facc15">MATERI EKSPONEN</h3>
+    <p>Evaluasi Pembelajaran Kurikulum Merdeka</p>
+</header>
+
+<section id="identitas">
+
+    <h2>Identitas Peserta Didik</h2>
+
+    <label>Nama Lengkap</label>
+    <input type="text" id="nama" placeholder="Masukkan nama lengkap">
+
+    <label>Kelas</label>
+    <input type="text" id="kelas" placeholder="Contoh: X-1">
+
+    <button id="mulai" onclick="mulaiUjian()">
+        MULAI UJIAN
+    </button>
+
+</section>
+
+<section id="ujian">
+
+    <div class="info">
+        <div>⏱ Waktu: <span id="timer">15:00</span></div>
+        <div>⚠ Peringatan: <span id="counter">0</span></div>
+    </div>
+
+    <div id="status">
+        STATUS: UJIAN SEDANG BERLANGSUNG
+    </div>
+
+    <h2>Petunjuk Pengerjaan</h2>
+
+    <ol>
+        <li>Bacalah setiap soal dengan teliti.</li>
+        <li>Pilih satu jawaban yang paling tepat.</li>
+        <li>Setiap soal memiliki bobot 20 poin.</li>
+        <li>Kerjakan seluruh soal sebelum waktu berakhir.</li>
+        <li>Jika sudah selesai, tekan tombol kumpulkan jawaban.</li>
+    </ol>
+
+    <form id="formUjian">
+
+        <div class="question">
+            <h3>Soal 1</h3>
+            <p>
+            Hasil dari 2<sup>3</sup> × 2<sup>4</sup>
+            adalah ....
+            </p>
+
+            <label><input type="radio" name="q1" value="a"> A. 2<sup>7</sup></label>
+            <label><input type="radio" name="q1" value="b"> B. 2<sup>12</sup></label>
+            <label><input type="radio" name="q1" value="c"> C. 2<sup>3</sup></label>
+            <label><input type="radio" name="q1" value="d"> D. 2<sup>8</sup></label>
+        </div>
+
+        <div class="question">
+            <h3>Soal 2</h3>
+            <p>
+            Nilai dari 5<sup>6</sup> ÷ 5<sup>2</sup>
+            adalah ....
+            </p>
+
+            <label><input type="radio" name="q2" value="a"> A. 5<sup>8</sup></label>
+            <label><input type="radio" name="q2" value="b"> B. 5<sup>4</sup></label>
+            <label><input type="radio" name="q2" value="c"> C. 5<sup>3</sup></label>
+            <label><input type="radio" name="q2" value="d"> D. 5<sup>2</sup></label>
+        </div>
+
+        <div class="question">
+            <h3>Soal 3</h3>
+            <p>
+            Hasil dari (3<sup>2</sup>)<sup>3</sup>
+            adalah ....
+            </p>
+
+            <label><input type="radio" name="q3" value="a"> A. 3<sup>5</sup></label>
+            <label><input type="radio" name="q3" value="b"> B. 3<sup>6</sup></label>
+            <label><input type="radio" name="q3" value="c"> C. 3<sup>9</sup></label>
+            <label><input type="radio" name="q3" value="d"> D. 3<sup>4</sup></label>
+        </div>
+
+        <div class="question">
+            <h3>Soal 4</h3>
+            <p>
+            Sebuah koloni bakteri berjumlah 10 pada awal pengamatan.
+            Setiap satu jam jumlahnya menjadi dua kali lipat.
+            Jumlah bakteri setelah 4 jam adalah ....
+            </p>
+
+            <label><input type="radio" name="q4" value="a"> A. 40 bakteri</label>
+            <label><input type="radio" name="q4" value="b"> B. 80 bakteri</label>
+            <label><input type="radio" name="q4" value="c"> C. 100 bakteri</label>
+            <label><input type="radio" name="q4" value="d"> D. 160 bakteri</label>
+        </div>
+
+        <div class="question">
+            <h3>Soal 5</h3>
+            <p>
+            Jika 2<sup>x</sup> = 128, maka nilai x adalah ....
+            </p>
+
+            <label><input type="radio" name="q5" value="a"> A. 5</label>
+            <label><input type="radio" name="q5" value="b"> B. 6</label>
+            <label><input type="radio" name="q5" value="c"> C. 7</label>
+            <label><input type="radio" name="q5" value="d"> D. 8</label>
+        </div>
+
+        <button type="button" id="kumpulkan" onclick="selesaiUjian()">
+            KUMPULKAN JAWABAN
+        </button>
+
+    </form>
+
+</section>
+
+<section id="hasil">
+
+    <h2>HASIL UJIAN</h2>
+
+    <p>Nama: <strong id="hasilNama"></strong></p>
+    <p>Kelas: <strong id="hasilKelas"></strong></p>
+
+    <h2>Nilai Akhir: <span id="nilai"></span></h2>
+
+    <p>Jawaban benar: <span id="benar"></span> dari 5 soal.</p>
+
+    <h3>Pembahasan Jawaban</h3>
+
+    <div id="detail"></div>
+
+</section>
+
+</div>
+
+<script>
+
+let ujianAktif = false;
+let jumlahPeringatan = 0;
+let waktu = 15 * 60;
+let interval = null;
+let audioContext = null;
+let sedangDiproses = false;
+
+const kunci = {
+    q1: "a",
+    q2: "b",
+    q3: "b",
+    q4: "b",
+    q5: "c"
+};
+
+const pembahasan = [
+    "Soal 1: 2³ × 2⁴ = 2³⁺⁴ = 2⁷. Jawaban A.",
+    "Soal 2: 5⁶ ÷ 5² = 5⁶⁻² = 5⁴. Jawaban B.",
+    "Soal 3: (3²)³ = 3²ˣ³ = 3⁶. Jawaban B.",
+    "Soal 4: 10 × 2⁴ = 10 × 16 = 160 bakteri. Jawaban D.",
+    "Soal 5: 2ˣ = 128 = 2⁷, sehingga x = 7. Jawaban C."
+];
+
+// Membuat suara alarm
+function bunyikanAlarm() {
+
+    if (!audioContext) return;
+
+    if (audioContext.state === "suspended") {
+        audioContext.resume();
+    }
+
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+
+    oscillator.type = "sine";
+
+    oscillator.frequency.setValueAtTime(
+        900,
+        audioContext.currentTime
+    );
+
+    gain.gain.setValueAtTime(
+        0.5,
+        audioContext.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.01,
+        audioContext.currentTime + 0.8
+    );
+
+    oscillator.start();
+
+    oscillator.stop(
+        audioContext.currentTime + 0.8
+    );
+}
+
+// Memulai ujian
+function mulaiUjian() {
+
+    const nama = document.getElementById("nama").value.trim();
+    const kelas = document.getElementById("kelas").value.trim();
+
+    if (!nama || !kelas) {
+        alert("Silakan isi nama dan kelas terlebih dahulu!");
+        return;
+    }
+
+    // Audio diaktifkan melalui klik pengguna
+    audioContext = new (
+        window.AudioContext ||
+        window.webkitAudioContext
+    )();
+
+    audioContext.resume();
+
+    ujianAktif = true;
+
+    document.getElementById("identitas").style.display = "none";
+    document.getElementById("ujian").style.display = "block";
+
+    mulaiTimer();
+}
+
+// Timer ujian
+function mulaiTimer() {
+
+    interval = setInterval(function() {
+
+        waktu--;
+
+        let menit = Math.floor(waktu / 60);
+        let detik = waktu % 60;
+
+        document.getElementById("timer").innerText =
+            String(menit).padStart(2, "0") + ":" +
+            String(detik).padStart(2, "0");
+
+        if (waktu <= 0) {
+            selesaiUjian();
+        }
+
+    }, 1000);
+}
+
+// Peringatan
+function beriPeringatan(pesan) {
+
+    if (!ujianAktif || sedangDiproses) return;
+
+    sedangDiproses = true;
+
+    jumlahPeringatan++;
+
+    document.getElementById("counter").innerText =
+        jumlahPeringatan;
+
+    const status = document.getElementById("status");
+
+    status.innerText = "⚠ PERINGATAN: " + pesan;
+
+    status.className = "warning";
+
+    bunyikanAlarm();
+
+    setTimeout(function() {
+
+        if (ujianAktif) {
+            status.innerText = "STATUS: UJIAN SEDANG BERLANGSUNG";
+            status.className = "";
+        }
+
+        sedangDiproses = false;
+
+    }, 1500);
+}
+
+// Deteksi perpindahan tab
+document.addEventListener("visibilitychange", function() {
+
+    if (ujianAktif && document.hidden) {
+        beriPeringatan("Anda meninggalkan halaman ujian!");
+    }
+
+});
+
+// Deteksi browser kehilangan fokus
+window.addEventListener("blur", function() {
+
+    if (ujianAktif) {
+        beriPeringatan("Jendela browser kehilangan fokus!");
+    }
+
+});
+
+// Menghitung nilai dan mengakhiri ujian
+function selesaiUjian() {
+
+    if (!ujianAktif) return;
+
+    ujianAktif = false;
+
+    clearInterval(interval);
+
+    let benar = 0;
+
+    for (let i = 1; i <= 5; i++) {
+
+        const jawaban = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        if (jawaban && jawaban.value === kunci["q" + i]) {
+            benar++;
+        }
+    }
+
+    const nilaiAkhir = benar * 20;
+
+    document.getElementById("ujian").style.display = "none";
+    document.getElementById("hasil").style.display = "block";
+
+    document.getElementById("hasilNama").innerText =
+        document.getElementById("nama").value;
+
+    document.getElementById("hasilKelas").innerText =
+        document.getElementById("kelas").value;
+
+    document.getElementById("nilai").innerText =
+        nilaiAkhir;
+
+    document.getElementById("benar").innerText =
+        benar;
+
+    let teks = "";
+
+    pembahasan.forEach(function(item) {
+        teks += '<div class="pembahasan">' + item + '</div>';
+    });
+
+    document.getElementById("detail").innerHTML = teks;
+
+    if (audioContext && audioContext.state !== "closed") {
+        audioContext.close();
+    }
+
+}
+
+</script>
+
+</body>
+</html>
